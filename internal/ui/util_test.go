@@ -15,7 +15,7 @@ func TestParseIntTextRejectsMalformedAndAcceptsPositive(t *testing.T) {
 }
 
 func TestParseFloatTextRejectsMalformedAndNonFinite(t *testing.T) {
-	for _, text := range []string{"abc", "NaN", "+Inf", "-Inf"} {
+	for _, text := range []string{"abc", "NaN", "+Inf", "-Inf", "", " ", "	"} {
 		if _, err := parseFloatText(text); err == nil {
 			t.Errorf("parseFloatText(%q) accepted invalid value", text)
 		}
